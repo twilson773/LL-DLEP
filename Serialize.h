@@ -23,6 +23,7 @@
 #ifndef SERIALIZE_H
 #define SERIALIZE_H
 
+#include <cstdint>
 #include <stdexcept>
 #include <vector>
 #include <type_traits>

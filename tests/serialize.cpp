@@ -11,6 +11,7 @@
 
 #include "Serialize.h"
 #include <limits>
+#include <cstdint>
 
 using namespace LLDLEP;
 
@@ -45,7 +46,7 @@ test_serialize()
 
            if (field_size < sizeof(T))
            {
-               std::uint64_t max_val_in_field_size = (1ULL << field_size*8) - 1;
+               uint64_t max_val_in_field_size = (1ULL << field_size*8) - 1;
                BOOST_TEST_MESSAGE(__FILE__ << ":" << __LINE__ << " " << max_val_in_field_size);
                if (val > max_val_in_field_size)
                {
@@ -54,12 +55,12 @@ test_serialize()
            }
 
            std::size_t sz;
-           std::vector<std::uint8_t> buf; // buffer to serialize into
+           std::vector<uint8_t> buf; // buffer to serialize into
 
            // Say what we're about to test
 
            BOOST_TEST_MESSAGE(__FILE__ << ":" << __LINE__
-                              << ": serialize value " << std::uint64_t(val)
+                              << ": serialize value " << uint64_t(val)
                               << " in field size " << field_size
                               << " should succeed " << serialize_should_succeed);
 
@@ -96,22 +97,22 @@ test_serialize()
 
 BOOST_AUTO_TEST_CASE(serialize_u8)
 {
-    test_serialize<std::uint8_t>();
+    test_serialize<uint8_t>();
 }
 
 BOOST_AUTO_TEST_CASE(serialize_u16)
 {
-    test_serialize<std::uint16_t>();
+    test_serialize<uint16_t>();
 }
 
 BOOST_AUTO_TEST_CASE(serialize_u32)
 {
-    test_serialize<std::uint32_t>();
+    test_serialize<uint32_t>();
 }
 
 BOOST_AUTO_TEST_CASE(serialize_u64)
 {
-    test_serialize<std::uint64_t>();
+    test_serialize<uint64_t>();
 }
 
 BOOST_AUTO_TEST_SUITE_END()

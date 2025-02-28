@@ -12,7 +12,7 @@
 
 #include "DlepClient.h" // base class
 #include "DlepService.h"
-
+#include <map>
 /// Example instantiation of the DlepClient interface.
 class DlepClientImpl : public LLDLEP::DlepClient
 {
